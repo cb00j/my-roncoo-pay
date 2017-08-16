@@ -12,8 +12,7 @@
 	<groupId>com.roncoo.pay.common</groupId>
 	<artifactId>roncoo-pay-dubbo</artifactId>
 	<version>0.1-SNAPSHOT</version>
-	<packaging>pom</packaging>
-
+	<packaging>pom</packagi
 	<name>roncoo-pay-dubbo</name>
 
 	<modules>
