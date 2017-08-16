@@ -29,36 +29,36 @@
 		<repository>
 			<id>nexus-releases</id>
 			<name>Nexus Release Repository</name>
-			<url>http://192.168.1.221:8081/nexus/content/repositories/releases/</url>
+			<url>http://192.168.0.64:8081/repository/maven-releases/</url>
 		</repository>
 		<snapshotRepository>
 			<id>nexus-snapshots</id>
 			<name>Nexus Snapshot Repository</name>
-			<url>http://192.168.1.221:8081/nexus/content/repositories/snapshots/</url>
+			<url>http://192.168.0.64:8081/repository/maven-snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<spring.version>3.2.17.RELEASE</spring.version>
-		<mybatis.version>3.4.0</mybatis.version>
-		<mybatis-spring.version>1.3.0</mybatis-spring.version>
-		<druid.version>1.0.20</druid.version>
-		<mysql.version>5.1.38</mysql.version>
-		<fastjson.version>1.2.11</fastjson.version>
-		<shiro.version>1.2.5</shiro.version>
-		<slf4j_version>1.7.21</slf4j_version>
+		<spring.version>4.3.10.RELEASE</spring.version>
+		<mybatis.version>3.4.4</mybatis.version>
+		<mybatis-spring.version>1.3.1</mybatis-spring.version>
+		<druid.version>1.1.2</druid.version>
+		<mysql.version>6.0.6</mysql.version>
+		<fastjson.version>1.2.36</fastjson.version>
+		<shiro.version>1.4.0</shiro.version>
+		<slf4j_version>1.7.25</slf4j_version>
 		<log4j_version>1.2.17</log4j_version>
-		<cglib.version>3.2.2</cglib.version>
-		<aspectjrt.version>1.5.4</aspectjrt.version>
-		<aspectjweaver.version>1.8.9</aspectjweaver.version>
+		<cglib.version>3.2.5</cglib.version>
+		<aspectjrt.version>1.8.10</aspectjrt.version>
+		<aspectjweaver.version>1.8.10</aspectjweaver.version>
 		<jstl.version>1.2</jstl.version>
 		<javaee-api.version>7.0</javaee-api.version>
 		<commons-lang.version>2.6</commons-lang.version>
 		<commons-io.version>2.5</commons-io.version>
 		<jdom.version>2.0.2</jdom.version>
-		<junit.version>4.11</junit.version>
+		<junit.version>4.12</junit.version>
 		<tcc.version>1.1.1</tcc.version>
 	</properties>
 
