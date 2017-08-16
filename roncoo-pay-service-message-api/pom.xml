@@ -10,7 +10,7 @@
 	<!-- ==================================================================== -->
 	<parent>
 		<groupId>com.roncoo.pay.common</groupId>
-		<artifactId>roncoo-pay</artifactId>
+		<artifactId>roncoo-pay-dubbo</artifactId>
 		<version>0.1-SNAPSHOT</version>
 	</parent>
 

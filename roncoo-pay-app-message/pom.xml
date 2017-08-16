@@ -10,10 +10,9 @@
 	<!-- 讲师：吴水成（水到渠成），840765167@qq.com -->
 	<!-- 课程地址：http://www.roncoo.com/details/7ae3d7eddc4742f78b0548aa8bd9ccdb -->
 	<!-- ==================================================================== -->
-	
 	<parent>
 		<groupId>com.roncoo.pay.common</groupId>
-		<artifactId>roncoo-pay</artifactId>
+		<artifactId>roncoo-pay-dubbo</artifactId>
 		<version>0.1-SNAPSHOT</version>
 	</parent>
 
