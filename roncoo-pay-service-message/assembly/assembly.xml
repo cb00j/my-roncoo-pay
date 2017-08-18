@@ -1,0 +1,33 @@
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.2 http://maven.apache.org/xsd/assembly-1.1.2.xsd">
+    <id>distribution</id>
+    <formats>
+        <format>tar.gz</format>
+    </formats>
+    <fileSets>
+        <fileSet>
+            <directory>${project.basedir}/sbin</directory>
+            <outputDirectory>/</outputDirectory>
+             <!--<lineEnding>unix</lineEnding>-->
+        </fileSet>
+    </fileSets>
+    <dependencySets>
+        <dependencySet>
+            <useProjectArtifact>true</useProjectArtifact>
+            <outputDirectory>lib</outputDirectory>
+            <!-- 将scope为runtime的依赖包打包到lib目录下。 -->
+            <scope>runtime</scope>
+            <excludes>
+                <exclude>com.roncoo.pay.service:roncoo-pay-service-message:*</exclude>
+            </excludes>
+        </dependencySet>
+    </dependencySets>
+    <files>
+        <file>
+            <source>target/roncoo-pay-service-message.jar</source>
+            <outputDirectory>/</outputDirectory>
+            <destName>roncoo-pay-service-message.jar</destName>
+        </file>
+    </files>
+</assembly>
