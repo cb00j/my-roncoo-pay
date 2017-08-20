@@ -73,6 +73,7 @@
 		<jdom.version>2.0.2</jdom.version>
 		<junit.version>4.12</junit.version>
 		<tcc.version>1.1.1</tcc.version>
+		<javassist.version>3.21.0-GA</javassist.version>
 	</properties>
 
 	<dependencyManagement>
@@ -354,6 +355,12 @@
 				<groupId>org.mengyun</groupId>
 				<artifactId>tcc-transaction-api</artifactId>
 				<version>${tcc.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.javassist</groupId>
+				<artifactId>javassist</artifactId>
+				<version>${javassist.version}</version>
 			</dependency>
 
 		</dependencies>
