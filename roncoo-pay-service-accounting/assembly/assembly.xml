@@ -10,6 +10,7 @@
             <directory>${project.basedir}/sbin</directory>
             <outputDirectory>/</outputDirectory>
              <!--<lineEnding>unix</lineEnding>-->
+            <fileMode>0777</fileMode>
         </fileSet>
     </fileSets>
     <dependencySets>

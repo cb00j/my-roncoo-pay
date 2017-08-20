@@ -4,10 +4,10 @@
 export JAVA_HOME=${JAVA_HOME}
 export JRE_HOME=$JAVA_HOME/jre
 
-APP_NAME=notify
+APP_NAME=roncoo-pay-service-notify
 
 SERVICE_DIR=/usr/local/service/$APP_NAME
-SERVICE_NAME=roncoo-pay-service-$APP_NAME
+SERVICE_NAME=$APP_NAME
 JAR_NAME=$SERVICE_NAME\.jar
 PID=$SERVICE_NAME\.pid
 

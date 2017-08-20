@@ -20,15 +20,15 @@
             <!-- 将scope为runtime的依赖包打包到lib目录下。 -->
             <scope>runtime</scope>
             <excludes>
-                <exclude>com.roncoo.pay.service:roncoo-pay-service-user:*</exclude>
+                <exclude>com.roncoo.pay.app:roncoo-pay-app-message:*</exclude>
             </excludes>
         </dependencySet>
     </dependencySets>
     <files>
         <file>
-            <source>target/roncoo-pay-service-user.jar</source>
+            <source>target/roncoo-pay-app-message.jar</source>
             <outputDirectory>/</outputDirectory>
-            <destName>roncoo-pay-service-user.jar</destName>
+            <destName>roncoo-pay-app-message.jar</destName>
         </file>
     </files>
 </assembly>
