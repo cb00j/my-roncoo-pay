@@ -8,18 +8,13 @@
  */
 package com.roncoo.test;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.apache.commons.lang.math.RandomUtils;
-
 import com.roncoo.utils.MerchantApiUtil;
 import com.roncoo.utils.PayConfigUtil;
 import com.roncoo.utils.httpclient.SimpleHttpUtils;
+import org.apache.commons.lang.math.RandomUtils;
+
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class MainTest {
 
@@ -86,7 +81,7 @@ public class MainTest {
 			
 			//模拟构建银行扣款成功结果通知
 			Map<String , Object> notifyMap = getNotifyRequestMap(merchantOrderNo);
-			String notifyResultStr = SimpleHttpUtils.httpGet("http://192.168.1.162:8082/roncoo-pay-web-gateway/scanPayNotify/notify/TEST_PAY_HTTP_CLIENT", notifyMap);
+			String notifyResultStr = SimpleHttpUtils.httpGet("http://192.168.0.74:8080/roncoo-pay-web-gateway/scanPayNotify/notify/TEST_PAY_HTTP_CLIENT", notifyMap);
 			System.out.println(notifyResultStr);
 		}
 	}
@@ -133,8 +128,8 @@ public class MainTest {
         paramMap.put("productName","模拟支付网关支付产品");// 商品名称
         paramMap.put("orderIp","127.0.0.1");
         paramMap.put("orderPeriod","30"); // 订单有效期
-        paramMap.put("returnUrl","http://192.168.1.162:8083/roncoo-pay-web-sample-shop/roncooPayNotify/notify"); // 页面通知返回url
-        paramMap.put("notifyUrl","http://192.168.1.162:8083/roncoo-pay-web-sample-shop/roncooPayNotify/notify");// 后台消息通知Url
+        paramMap.put("returnUrl","http://192.168.0.74:8080/roncoo-pay-web-sample-shop/roncooPayNotify/notify"); // 页面通知返回url
+        paramMap.put("notifyUrl","http://192.168.0.74:8080/roncoo-pay-web-sample-shop/roncooPayNotify/notify");// 后台消息通知Url
         paramMap.put("remark"," 支付备注"); // 支付备注
 
         ////////////扩展字段,选填,原值返回///////////
