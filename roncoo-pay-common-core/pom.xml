@@ -261,6 +261,11 @@
 		</dependency>
 		<!-- dubbo end -->
 
+		<dependency>
+			<groupId>org.javassist</groupId>
+			<artifactId>javassist</artifactId>
+		</dependency>
+
 	</dependencies>
 </project>
 <!-- ==================================================================== -->
