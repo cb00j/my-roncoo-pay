@@ -8,16 +8,6 @@
  */
 package com.roncoo.pay.app.notify.message;
 
-import java.util.Date;
-
-import javax.jms.Message;
-import javax.jms.MessageListener;
-
-import org.apache.activemq.command.ActiveMQTextMessage;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.roncoo.pay.app.notify.core.NotifyPersist;
@@ -27,6 +17,14 @@ import com.roncoo.pay.common.core.utils.StringUtil;
 import com.roncoo.pay.service.notify.aip.RpNotifyService;
 import com.roncoo.pay.service.notify.entity.RpNotifyRecord;
 import com.roncoo.pay.service.notify.enums.NotifyStatusEnum;
+import org.apache.activemq.command.ActiveMQTextMessage;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.jms.Message;
+import javax.jms.MessageListener;
+import java.util.Date;
 
 /**
  * @功能说明:
@@ -35,7 +33,7 @@ import com.roncoo.pay.service.notify.enums.NotifyStatusEnum;
  * @公司名称:广州市领课网络科技有限公司 龙果学院(www.roncoo.com)
  * @版本:V1.0
  */
-public class ConsumerSessionAwareMessageListener  implements MessageListener {
+public class ConsumerSessionAwareMessageListener implements MessageListener {
 
     private static final Log log = LogFactory.getLog(ConsumerSessionAwareMessageListener.class);
 
@@ -65,9 +63,9 @@ public class ConsumerSessionAwareMessageListener  implements MessageListener {
             notifyRecord.setCreateTime(new Date());
             notifyRecord.setLastNotifyTime(new Date());
 
-            if ( !StringUtil.isEmpty(notifyRecord.getId())){
+            if (!StringUtil.isEmpty(notifyRecord.getId())) {
                 RpNotifyRecord notifyRecordById = rpNotifyService.getNotifyRecordById(notifyRecord.getId());
-                if (notifyRecordById != null){
+                if (notifyRecordById != null) {
                     return;
                 }
             }
@@ -80,10 +78,9 @@ public class ConsumerSessionAwareMessageListener  implements MessageListener {
                 // 将获取到的通知先保存到数据库中
                 notifyPersist.saveNotifyRecord(notifyRecord);
                 notifyRecord = rpNotifyService.getNotifyByMerchantNoAndMerchantOrderNoAndNotifyType(notifyRecord.getMerchantNo(), notifyRecord.getMerchantOrderNo(), notifyRecord.getNotifyType());
-
                 // 添加到通知队列
-                notifyQueue.addElementToList(notifyRecord);
-            }  catch (BizException e) {
+                notifyQueue.addToNotifyTaskDelayQueue(notifyRecord);
+            } catch (BizException e) {
                 log.error("BizException :", e);
             } catch (Exception e) {
                 log.error(e);
