@@ -13,7 +13,7 @@
 
 	<parent>
 		<groupId>com.roncoo.pay.common</groupId>
-		<artifactId>roncoo-pay-dubbo</artifactId>
+		<artifactId>roncoo-pay</artifactId>
 		<version>0.1-SNAPSHOT</version>
 	</parent>
 
@@ -119,28 +119,11 @@
 						<configuration>
 							<type>jar</type>
 							<includeTypes>jar</includeTypes>
-							<!--<useUniqueVersions>false</useUniqueVersions>-->
+							<useUniqueVersions>false</useUniqueVersions>
 							<outputDirectory>
 								${project.build.directory}/lib
 							</outputDirectory>
 						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<artifactId>maven-assembly-plugin</artifactId>
-				<configuration>
-					<descriptors>
-						<descriptor>assembly/assembly.xml</descriptor>
-					</descriptors>
-				</configuration>
-				<executions>
-					<execution>
-						<id>assemble-zip</id>
-						<goals>
-							<goal>single</goal>
-						</goals>
-						<phase>package</phase>
 					</execution>
 				</executions>
 			</plugin>
