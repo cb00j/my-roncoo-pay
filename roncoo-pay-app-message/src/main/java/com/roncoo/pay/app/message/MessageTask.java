@@ -21,7 +21,7 @@ import com.roncoo.pay.app.message.scheduled.MessageScheduled;
  * 1.处理状态为“待确认”但已超时的消息 <br/>
  * 2.处理状态为“发送中”但超时没有被成功消费确认的消息 <br/>
  * 龙果学院：www.roncoo.com
- * 
+ *
  * @author：shenjialong
  */
 public class MessageTask {
@@ -44,20 +44,17 @@ public class MessageTask {
 			ThreadPoolTaskExecutor threadPool = (ThreadPoolTaskExecutor) context.getBean("threadPool");
 
 			// 开一个子线程处理状态为“待确认”但已超时的消息.
-			threadPool.execute(new Runnable() {
-				@Override
-				public void run() {
-					while (true) {
+			threadPool.execute(() -> {
+				while (true) {
 
-						log.info("执行(处理[waiting_confirm]状态的消息)任务开始");
-						settScheduled.handleWaitingConfirmTimeOutMessages();
-						log.info("执行(处理[waiting_confirm]状态的消息)任务结束");
-						
-						try {
-							log.info("[waiting_confirm]睡眠60秒");
-							Thread.sleep(60000);
-						} catch (InterruptedException e) {
-						}
+					log.info("执行(处理[waiting_confirm]状态的消息)任务开始");
+					settScheduled.handleWaitingConfirmTimeOutMessages();
+					log.info("执行(处理[waiting_confirm]状态的消息)任务结束");
+
+					try {
+						log.info("[waiting_confirm]睡眠60秒");
+						Thread.sleep(60000);
+					} catch (InterruptedException e) {
 					}
 				}
 			});

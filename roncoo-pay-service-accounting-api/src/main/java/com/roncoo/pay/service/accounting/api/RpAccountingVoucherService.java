@@ -8,12 +8,12 @@
  */
 package com.roncoo.pay.service.accounting.api;
 
-import java.util.Map;
-
 import com.roncoo.pay.common.core.page.PageBean;
 import com.roncoo.pay.common.core.page.PageParam;
 import com.roncoo.pay.service.accounting.entity.RpAccountingVoucher;
 import com.roncoo.pay.service.accounting.exceptions.AccountingBizException;
+
+import java.util.Map;
 
 
 /**
@@ -63,7 +63,8 @@ public interface RpAccountingVoucherService {
 	/***
 	 * 根据条件查询分录请求表数据
 	 * 
-	 * @param searchMap
+	 * @param pageParam
+	 * @param paramMap
 	 * @return
 	 */
 	public PageBean listPage(PageParam pageParam, Map<String, Object> paramMap) throws AccountingBizException;
@@ -87,7 +88,7 @@ public interface RpAccountingVoucherService {
 	/**
 	 * 修改分录请求
 	 * 
-	 * @param param
+	 * @param entity
 	 */
 	public void updateAccountingVoucher(RpAccountingVoucher entity) throws AccountingBizException;
 

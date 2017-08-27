@@ -8,19 +8,6 @@
  */
 package com.roncoo.pay.app.message.scheduled.impl;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 import com.roncoo.pay.app.message.biz.MessageBiz;
 import com.roncoo.pay.app.message.scheduled.MessageScheduled;
 import com.roncoo.pay.common.core.enums.PublicEnum;
@@ -30,6 +17,13 @@ import com.roncoo.pay.common.core.utils.PublicConfigUtil;
 import com.roncoo.pay.service.message.api.RpTransactionMessageService;
 import com.roncoo.pay.service.message.entity.RpTransactionMessage;
 import com.roncoo.pay.service.message.enums.MessageStatusEnum;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 /**
  * 消息定时器接口实现
@@ -85,7 +79,7 @@ public class MessageScheduledImpl implements MessageScheduled {
 			int numPerPage = 2000; // 每页条数
 			int maxHandlePageCount = 3; // 一次最多处理页数
 			
-			Map<String, Object> paramMap = new HashMap<String, Object>(); // 查询条件
+			Map<String, Object> paramMap = new HashMap<>(); // 查询条件
 			//paramMap.put("consumerQueue", queueName); // 队列名（可以按不同业务队列分开处理）
 			paramMap.put("listPageSortType", "ASC"); // 分页查询的排序方式，正向排序
 			// 获取配置的开始处理的时间
@@ -115,7 +109,7 @@ public class MessageScheduledImpl implements MessageScheduled {
 		int pageNum = 1; // 当前页
 		
 		Map<String, RpTransactionMessage> messageMap = new HashMap<String, RpTransactionMessage>(); // 转换成map
-		List<RpTransactionMessage> recordList = new ArrayList<RpTransactionMessage>(); // 每次拿到的结果集
+		List<RpTransactionMessage> recordList = new ArrayList<>(); // 每次拿到的结果集
 		int pageCount = 1; // 总页数
 		
 		log.info("==>pageNum:" + pageNum + ", numPerPage:" + numPerPage);
@@ -151,7 +145,7 @@ public class MessageScheduledImpl implements MessageScheduled {
 				messageMap.put(message.getMessageId(), message);
 			}
 		}
-		
+
 		recordList = null;
 		pageBean = null;
 		

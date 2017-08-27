@@ -8,22 +8,6 @@
  */
 package com.roncoo.pay.controller;
 
-import java.io.IOException;
-import java.math.BigDecimal;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.roncoo.pay.common.core.enums.PayWayEnum;
 import com.roncoo.pay.common.core.utils.DateUtils;
 import com.roncoo.pay.common.core.utils.StringUtil;
@@ -41,13 +25,24 @@ import com.roncoo.pay.service.user.api.RpUserPayConfigService;
 import com.roncoo.pay.service.user.entity.RpUserPayConfig;
 import com.roncoo.pay.service.user.exceptions.UserBizException;
 import com.roncoo.pay.utils.JsonUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
- * @功能说明:   扫码支付
- * @创建者: Peter
- * @创建时间: 16/5/19  下午3:06
- * @公司名称:广州市领课网络科技有限公司 龙果学院(www.roncoo.com)
- * @版本:V1.0
+ * 扫码支付
+ * @author CBJ
  */
 @Controller
 @RequestMapping(value = "/scanPay")
@@ -77,7 +72,7 @@ public class ScanPayController extends BaseController {
      */
     @RequestMapping("/initPay")
     public String initPay(Model model){
-        Map<String , Object> paramMap = new HashMap<String , Object>();
+        Map<String , Object> paramMap = new HashMap<>();
 
         //获取商户传入参数
         String payKey = getString_UrlDecode_UTF8("payKey"); // 企业支付KEY

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:jms="http://www.springframework.org/schema/jms"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
      http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-     http://www.springframework.org/schema/context
-     http://www.springframework.org/schema/context/spring-context-3.0.xsd
     http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 	http://www.springframework.org/schema/jms http://www.springframework.org/schema/jms/spring-jms-3.0.xsd">
 
@@ -18,9 +16,9 @@
 
 	<!-- 真正可以产生Connection的ConnectionFactory，由对应的 JMS服务厂商提供 -->
 	<bean id="targetConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
-		<property name="brokerURL" value="${roncoo.pay.mq.brokerURL}"></property>
-		<property name="userName" value="${roncoo.pay.mq.userName}"></property>
-		<property name="password" value="${roncoo.pay.mq.password}"></property>
+		<property name="brokerURL" value="${roncoo.pay.mq.brokerURL}"/>
+		<property name="userName" value="${roncoo.pay.mq.userName}"/>
+		<property name="password" value="${roncoo.pay.mq.password}"/>
 	</bean>
 
 
@@ -36,7 +34,7 @@
 		<property name="connectionFactory" ref="connectionFactory" />
 	</bean>
 
-	<bean id="bankMessageBiz" class="com.roncoo.pay.app.queue.bankmessage.biz.BankMessageBiz"></bean>
+	<bean id="bankMessageBiz" class="com.roncoo.pay.app.queue.bankmessage.biz.BankMessageBiz" />
 	
 	<bean id="bankMessageListener" class="com.roncoo.pay.app.queue.BankMessageListener">
 		<property name="notifyJmsTemplate" ref="notifyJmsTemplate" />

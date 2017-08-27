@@ -19,8 +19,8 @@
 	<bean id="targetConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
 		<!-- ActiveMQ服务地址 -->
 		<property name="brokerURL" value="${roncoo.pay.mq.brokerURL}" />
-		<property name="userName" value="${roncoo.pay.mq.userName}"></property>
-		<property name="password" value="${roncoo.pay.mq.password}"></property>
+		<property name="userName" value="${roncoo.pay.mq.userName}" />
+		<property name="password" value="${roncoo.pay.mq.password}" />
 	</bean>
 
 	<!-- ActiveMQ为我们提供了一个PooledConnectionFactory，通过往里面注入一个ActiveMQConnectionFactory 可以用来将Connection、Session和MessageProducer池化，这样可以大大的减少我们的资源消耗。 要依赖于 activemq-pool包 -->

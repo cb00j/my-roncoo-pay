@@ -8,19 +8,18 @@
  */
 package com.roncoo.pay.service.accounting.aip.impl; 
 
-import java.util.Map;
-
+import com.roncoo.pay.common.core.page.PageBean;
+import com.roncoo.pay.common.core.page.PageParam;
+import com.roncoo.pay.service.accounting.api.RpAccountingVoucherService;
+import com.roncoo.pay.service.accounting.dao.RpAccountingVoucherDao;
+import com.roncoo.pay.service.accounting.entity.RpAccountingVoucher;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.roncoo.pay.common.core.page.PageBean;
-import com.roncoo.pay.common.core.page.PageParam;
-import com.roncoo.pay.service.accounting.api.RpAccountingVoucherService;
-import com.roncoo.pay.service.accounting.dao.RpAccountingVoucherDao;
-import com.roncoo.pay.service.accounting.entity.RpAccountingVoucher;
+import java.util.Map;
 
 
 /**
@@ -130,7 +129,7 @@ public class RpAccountingVoucherServiceImpl implements RpAccountingVoucherServic
 	
 	/**
 	 * 修改分录请求
-	 * @param param
+	 * @param entity
 	 */
 	public void updateAccountingVoucher(RpAccountingVoucher entity){
 		rpAccountingVoucherDao.update(entity);

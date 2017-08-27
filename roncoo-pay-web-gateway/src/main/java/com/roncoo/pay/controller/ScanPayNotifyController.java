@@ -16,22 +16,6 @@ package com.roncoo.pay.controller;
  * @版本:V1.0
  */
 
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.alibaba.fastjson.JSONObject;
 import com.roncoo.pay.common.core.enums.NotifyDestinationNameEnum;
 import com.roncoo.pay.common.core.enums.PayWayEnum;
@@ -42,6 +26,20 @@ import com.roncoo.pay.service.trade.api.RpTradePaymentManagerService;
 import com.roncoo.pay.service.trade.utils.WeiXinPayUtils;
 import com.roncoo.pay.service.trade.utils.alipay.util.AliPayUtil;
 import com.roncoo.pay.service.trade.vo.OrderPayResultVo;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 @Controller
 @RequestMapping(value = "/scanPayNotify")
@@ -64,7 +62,7 @@ public class ScanPayNotifyController {
     public void notify(@PathVariable("payWayCode") String  payWayCode , HttpServletRequest httpServletRequest , HttpServletResponse httpServletResponse) throws Exception {
     	LOG.info("into notify,payWayCode:"+payWayCode);
         String printStr = "";
-        Map<String , String> notifyMap = new HashMap<String , String >();
+        Map<String , String> notifyMap = new HashMap<>();
         if (PayWayEnum.WEIXIN.name().equals(payWayCode)){
             InputStream inputStream = httpServletRequest.getInputStream();// 从request中取得输入流
             notifyMap = WeiXinPayUtils.parseXml(inputStream);
